@@ -1,0 +1,104 @@
+{
+  "version": "0.1.0",
+  "at": "2026-11-12T10:06:31+00:00",
+  "dry_run": false,
+  "total_tasks": 3,
+  "rounds": 2,
+  "replans_used": 1,
+  "degraded": false,
+  "false_positive_replans": 0,
+  "metrics": {
+    "truth_pass_rate": 1.0,
+    "delta_saving": 0.3333,
+    "converged": true
+  },
+  "replan_log": [
+    {
+      "round": 1,
+      "mode": "replan_delta",
+      "bad": [
+        "t1"
+      ],
+      "reset": [
+        "t1",
+        "t2"
+      ],
+      "reset_ratio": 0.6667
+    }
+  ],
+  "failures": [
+    {
+      "at": "2026-11-12T10:06:31+00:00",
+      "task_id": "t1",
+      "family": "verification",
+      "family_note": "任务验证（过早宣称完成、验证缺失、判据错误）",
+      "deviations": [
+        "ground_truth:mismatch"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "goal": "primes_sum_100",
+      "expect": {
+        "format": "int",
+        "range": [
+          0,
+          2000
+        ],
+        "ground_truth": 1060
+      },
+      "depends_on": [],
+      "status": "done",
+      "inject_wrong_once": true,
+      "_attempts": 2,
+      "result": 1060,
+      "replans": 1,
+      "avoid_prior": [
+        "[verification] t1: ground_truth:mismatch"
+      ]
+    },
+    {
+      "id": "t2",
+      "goal": "primes_sum_100",
+      "expect": {
+        "format": "int",
+        "range": [
+          0,
+          2000
+        ],
+        "ground_truth": 1060
+      },
+      "depends_on": [
+        "t1"
+      ],
+      "status": "done",
+      "_attempts": 2,
+      "result": 1060,
+      "replans": 1,
+      "avoid_prior": [
+        "[verification] t1: ground_truth:mismatch"
+      ]
+    },
+    {
+      "id": "t3",
+      "goal": "primes_sum_100",
+      "expect": {
+        "format": "int",
+        "range": [
+          0,
+          2000
+        ],
+        "ground_truth": 1060
+      },
+      "depends_on": [],
+      "status": "done",
+      "_attempts": 1,
+      "result": 1060,
+      "avoid_prior": [
+        "[verification] t1: ground_truth:mismatch"
+      ]
+    }
+  ]
+}

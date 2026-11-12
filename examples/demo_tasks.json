@@ -1,0 +1,47 @@
+[
+  {
+    "id": "t1",
+    "goal": "primes_sum_100",
+    "expect": {
+      "format": "int",
+      "range": [
+        0,
+        2000
+      ],
+      "ground_truth": 1060
+    },
+    "depends_on": [],
+    "status": "pending",
+    "inject_wrong_once": true
+  },
+  {
+    "id": "t2",
+    "goal": "primes_sum_100",
+    "expect": {
+      "format": "int",
+      "range": [
+        0,
+        2000
+      ],
+      "ground_truth": 1060
+    },
+    "depends_on": [
+      "t1"
+    ],
+    "status": "pending"
+  },
+  {
+    "id": "t3",
+    "goal": "primes_sum_100",
+    "expect": {
+      "format": "int",
+      "range": [
+        0,
+        2000
+      ],
+      "ground_truth": 1060
+    },
+    "depends_on": [],
+    "status": "pending"
+  }
+]

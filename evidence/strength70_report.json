@@ -1,0 +1,109 @@
+{
+  "tool": "strength70_selfcheck (rebuilt)",
+  "at": "2026-11-12T10:08:59+00:00",
+  "scope_note": "重建口径：D01-D70 中 50 可硬判 / 20 不适用 / 16 独立判据；本脚本逐族实算，非原 strength70.py 逐维复刻",
+  "counts": {
+    "families": 16,
+    "pass": 16,
+    "fail": 0,
+    "independent_judges": 16
+  },
+  "families": [
+    {
+      "id": "F01",
+      "name": "README 存在且含安装/用法/诚实边界",
+      "verdict": "PASS",
+      "note": "README.md 三节齐全"
+    },
+    {
+      "id": "F02",
+      "name": "LICENSE 存在且为 MIT",
+      "verdict": "PASS",
+      "note": "MIT"
+    },
+    {
+      "id": "F03",
+      "name": "CHANGELOG 版本演进留痕",
+      "verdict": "PASS",
+      "note": "含 v0.1.0"
+    },
+    {
+      "id": "F04",
+      "name": "CONTRIBUTING 贡献入口",
+      "verdict": "PASS",
+      "note": "存在"
+    },
+    {
+      "id": "F05",
+      "name": "CITATION.cff 可引用",
+      "verdict": "PASS",
+      "note": "可机读"
+    },
+    {
+      "id": "F06",
+      "name": "CI workflow 存在且含测试步骤",
+      "verdict": "PASS",
+      "note": "CI 调 unittest"
+    },
+    {
+      "id": "F07",
+      "name": "测试套件存在且可发现",
+      "verdict": "PASS",
+      "note": "tests/test_replanweaver.py"
+    },
+    {
+      "id": "F08",
+      "name": "examples 任务卡可解析",
+      "verdict": "PASS",
+      "note": "两份任务卡 JSON 合法"
+    },
+    {
+      "id": "F09",
+      "name": "docs/DESIGN.md 含可证伪预测",
+      "verdict": "PASS",
+      "note": "论文级设计文档含证伪条款"
+    },
+    {
+      "id": "F10",
+      "name": "ACCEPTANCE.md 数字门齐全",
+      "verdict": "PASS",
+      "note": "验收卡含指标名"
+    },
+    {
+      "id": "F11",
+      "name": "RELEASE_CHECKLIST 待推送清单+风险点",
+      "verdict": "PASS",
+      "note": "发布闸两要件"
+    },
+    {
+      "id": "F12",
+      "name": "PROPOSALS.md 反完美排队闸",
+      "verdict": "PASS",
+      "note": "新功能排队"
+    },
+    {
+      "id": "F13",
+      "name": "发布前敏感字段剥离扫描（全仓递归 v2）",
+      "verdict": "PASS",
+      "note": "全仓递归 0 命中（双轨判据 v2；仅豁免 strength70_selfcheck.py 检测器定义区：跳过 21 行（第 43-63 行）；其余行与其他文件全扫）"
+    },
+    {
+      "id": "F14",
+      "name": "CLI --help 可执行",
+      "verdict": "PASS",
+      "note": "rc=0"
+    },
+    {
+      "id": "F15",
+      "name": "全量测试实跑通过",
+      "verdict": "PASS",
+      "note": "rc=0; Ran 17 tests"
+    },
+    {
+      "id": "F16",
+      "name": "demo 实跑闭环收敛",
+      "verdict": "PASS",
+      "note": "rc=0"
+    }
+  ]
+}

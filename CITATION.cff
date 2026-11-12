@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use RePlanWeaver, please cite this repository."
+title: "RePlanWeaver: Mid-Course Review and Delta-Replan for Multi-Agent Task Graphs"
+version: 0.1.0
+date-released: 2026-11-12
+type: software
+authors:
+  - name: "Zhengming (正明)"
+repository-code: "PENDING-PUBLICATION"
+license: MIT
+abstract: >-
+  A zero-dependency Python engine that checks intermediate agent outputs against
+  machine-verifiable expectation contracts, propagates deviations along the task
+  dependency graph, replans only the affected subtree, caps replanning with a
+  hard budget, and distills failures into reusable priors.
+keywords:
+  - multi-agent systems
+  - replanning
+  - verification
+  - expectation contract
+  - failure taxonomy

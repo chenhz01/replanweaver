@@ -1,0 +1,28 @@
+# Changelog
+
+All notable changes to this project are documented here. 版本按「可证伪收敛」推进：每版只动一个核心命题，不达标不升级。
+
+## [0.1.0] - 2026-11-12 — 核心闭环跑通
+
+### 新增
+- B2 `ExpectationContract`：format / range / ground_truth（含 gte 阈值）机器判据
+- B1 `ReviewGate`：批次聚合后逐任务对账，偏差出回拆单
+- B4 `DriftGraph`：`depends_on` 反向图 + BFS 下游污染圈定 + `replan_delta`（旁支结果保留）
+- B5 `ReplanBudget`：2 轮硬上限，超限 `degraded=true` 降级交付
+- B8 `FailureDistillery`：MAST 三大类归档 JSONL + `avoid_prior` 回流注入
+- `Engine`：影子沙盘 dry-run、池化并发（ThreadPoolExecutor）、指标报告
+- CLI：`init` / `demo` / `run` / `report`
+- 17 例 unittest（含 2 组负对照：无偏差不回拆、预算耗尽不死循环）
+- `strength70_selfcheck.py`：16 独立判据族发布就绪自评（重建口径，非原引擎复刻）
+- 论文级 `docs/DESIGN.md`（B3/B6/B7/B12 机制主张）、`ACCEPTANCE.md`、`RELEASE_CHECKLIST.md`
+
+### 实跑回执
+- `python -m unittest discover -s tests -v` → 17/17 OK
+- `python replanweaver.py demo --workers 4` → truth_pass_rate=1.0, converged=true, replans=1
+- 根偏差拓扑 delta_saving=0.3333；叶子偏差拓扑另附 `examples/leaf_tasks.json`
+
+### 已知差距（不得标为已完成）
+- worker 为真值演示函数，未接真实 LLM
+- delta_saving 强依赖拓扑，根偏差场景仅 33.3%，低于理想线 50%（v0.5 优化项）
+- 原 strength70.py 未定位到，自评为重建口径
+- 未推送 GitHub（等项目所有者「可以推」）

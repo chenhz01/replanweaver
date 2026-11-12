@@ -1,0 +1,54 @@
+{
+  "name": "replanweaver",
+  "version": "0.1.0",
+  "date": "2026-11-12",
+  "status": "LOCAL_ONLY_NOT_PUBLISHED",
+  "license": "MIT",
+  "author": "Zhengming (正明)",
+  "author_identity": "VERIFIED 2026-11-12: GitHub account chenhz01 (id 318280069); primary email verified but not written into public repo; commits use GitHub noreply address; see RELEASE_CHECKLIST.md R2",
+  "entrypoint": "replanweaver.py",
+  "python": ">=3.10",
+  "dependencies": [],
+  "mechanisms_implemented": ["B1", "B2", "B4", "B5", "B8", "B13"],
+  "mechanisms_partially_implemented": ["B3", "B12"],
+  "mechanisms_claimed_not_implemented": ["B6", "B7"],
+  "evidence": {
+    "tests": "17/17 OK (python -m unittest discover -s tests -v)",
+    "demo_root_topology": "truth_pass_rate=1.0, replans=1, delta_saving=0.3333, converged=true (evidence/demo_report.json)",
+    "demo_leaf_topology": "delta_saving=0.6667, truth_pass_rate=1.0 (evidence/leaf_report.json)",
+    "strength70_selfcheck": "16/16 families PASS, rc=0; F13 PASS with audited detector-block exemption (evidence/strength70_report.json)",
+    "external_review": "2 independent reviews both FAIL on first pass -> findings fixed -> final re-run 16/16 rc=0; SECOND HUMAN REVIEW STILL REQUIRED before push",
+    "final_rerun": {
+      "python": "3.13.14",
+      "unittest": "17/17 OK rc=0",
+      "demo_t_root": "delta_saving=0.3333, truth_pass_rate=1.0, converged=true, false_positive_replans=0",
+      "leaf_t_leaf": "delta_saving=0.6667, truth_pass_rate=1.0, converged=true",
+      "selfcheck": "families=16 pass=16 fail=0 rc=0"
+    }
+  },
+  "honesty": {
+    "worker": "demonstration ground-truth function, not a real LLM",
+    "delta_saving": "topology-dependent; T-root 0.3333, T-leaf 0.6667; T-root below 0.50 ideal line",
+    "strength70": "rebuilt selfcheck (16 independent families), not original engine replica; self-judged, needs external CI",
+    "f13_exemption": "only the detector-definition block in strength70_selfcheck.py is skipped; guarded by paired markers, <=24 lines, self-file only; any guard failure is recorded as a hit and F13 fails; exemption line count is written into the F13 receipt",
+    "assertion_state": "A12 was once marked 16/16 PASS while last run was 15/16; corrected by final re-run receipt, not by claiming 'fixed'",
+    "publication": "GitHub push requires explicit approval",
+    "sanitization": "internal-person teaching page moved out of public repo; private paths generalized; generated failure log moved out of repo root"
+  },
+  "files": [
+    "replanweaver.py", "strength70_selfcheck.py", "README.md", "LICENSE",
+    "CITATION.cff", "CHANGELOG.md", "CONTRIBUTING.md", "PROPOSALS.md",
+    "ACCEPTANCE.md", "RELEASE_CHECKLIST.md", "MANIFEST.json",
+    ".github/workflows/ci.yml",
+    "tests/test_replanweaver.py",
+    "examples/demo_tasks.json", "examples/leaf_tasks.json",
+    "docs/DESIGN.md", "docs/EXPECT-SCHEMA.md",
+    "evidence/demo_report.json", "evidence/leaf_report.json",
+    "evidence/strength70_report.json", "evidence/failures.jsonl"
+  ],
+  "not_in_public_repo": [
+    "给项目所有者的一页纸（教学件，工作区内部交付）",
+    "根目录 failures.jsonl（自评临时文件，已移出公开仓，工作区内部留存 agent-scale-100/replanweaver-root-failures-backup.jsonl）",
+    "一屏验收门 HTML（B11 内部流程件，工作区内部交付）"
+  ]
+}
