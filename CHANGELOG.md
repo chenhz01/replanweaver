@@ -29,4 +29,9 @@ All notable changes to this project are documented here. 版本按「可证伪�
 
 ### 发布（2026-11-12）
 - 项目所有者明确「可以推」后推送至 https://github.com/chenhz01/replanweaver（public / MIT）。
-- 线上核验：HEAD `b818308` 与本地一致、21 文件、GitHub Actions CI `conclusion=success`（3 版本矩阵）。
+- 线上核验：首发 commit `b818308`、当前 HEAD `fa6608c` 与本地一致；21 文件；GitHub Actions 两次 run 均 `conclusion=success`（3 版本矩阵）。
+
+### 维护性修正 R11（2026-11-12，第三次 push，已授权）
+- 发布回执原把 HEAD 写死为首发 `b818308`；第二次推送（发布态对齐）后线上真实 HEAD 变为 `fa6608c`，「与本地一致」失实。
+- `RELEASE_CHECKLIST.md`、`MANIFEST.json`、本文件统一改为「首发 / 当前」双 SHA 留痕；`published_at` 仍指首次公开时间点，不改写。
+- 本修正只改文档口径，不动任何代码、测试或判据；F11 字段契约与 F13 全仓扫描保持不变。
