@@ -29,7 +29,7 @@ check(value, expect) -> deviations[]
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.org/expect-schema/v0.1",
+  "$id": "https://github.com/chenhz01/replanweaver/blob/main/docs/EXPECT-SCHEMA.md",
   "type": "object",
   "properties": {
     "format": {"enum": ["int", "float", "str", "list", "dict", "bool"]},
@@ -47,7 +47,7 @@ check(value, expect) -> deviations[]
 }
 ```
 
-> `$id` 为占位 URL，推送前须替换为真实地址；未替换不得声称规范已发布。
+> `$id` 已于 2026-11-12 推送后凭线上实证替换为本仓真实地址。**注意**：本文件仍是 L1 草案，尚未抽成独立公开规范（`PROPOSALS.md` P6 排队），不得宣称「规范已发布」。
 
 ## 版本演进规则
 

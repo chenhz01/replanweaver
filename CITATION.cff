@@ -6,7 +6,7 @@ date-released: 2026-11-12
 type: software
 authors:
   - name: "Zhengming (正明)"
-repository-code: "PENDING-PUBLICATION"
+repository-code: "https://github.com/chenhz01/replanweaver"
 license: MIT
 abstract: >-
   A zero-dependency Python engine that checks intermediate agent outputs against

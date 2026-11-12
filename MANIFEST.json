@@ -2,7 +2,10 @@
   "name": "replanweaver",
   "version": "0.1.0",
   "date": "2026-11-12",
-  "status": "LOCAL_ONLY_NOT_PUBLISHED",
+  "status": "PUBLISHED",
+  "repository": "https://github.com/chenhz01/replanweaver",
+  "published_at": "2026-11-12T10:10:37Z",
+  "head_commit": "b8183083ed062c1bea9649233117eb5e4d8b7a70",
   "license": "MIT",
   "author": "Zhengming (正明)",
   "author_identity": "VERIFIED 2026-11-12: GitHub account chenhz01 (id 318280069); primary email verified but not written into public repo; commits use GitHub noreply address; see RELEASE_CHECKLIST.md R2",
@@ -17,7 +20,9 @@
     "demo_root_topology": "truth_pass_rate=1.0, replans=1, delta_saving=0.3333, converged=true (evidence/demo_report.json)",
     "demo_leaf_topology": "delta_saving=0.6667, truth_pass_rate=1.0 (evidence/leaf_report.json)",
     "strength70_selfcheck": "16/16 families PASS, rc=0; F13 PASS with audited detector-block exemption (evidence/strength70_report.json)",
-    "external_review": "2 independent reviews both FAIL on first pass -> findings fixed -> final re-run 16/16 rc=0; SECOND HUMAN REVIEW STILL REQUIRED before push",
+    "external_review": "2 independent reviews both FAIL on first pass -> findings fixed -> final re-run 16/16 rc=0; machine-assisted re-check + explicit owner approval 2026-11-12",
+    "external_ci": "GitHub Actions CI: conclusion=success, 3-version matrix (2026-11-12T10:10:42Z)",
+    "online_verification": "gh api: 21 blobs on main, HEAD matches local commit, MIT detected, private=false",
     "final_rerun": {
       "python": "3.13.14",
       "unittest": "17/17 OK rc=0",
@@ -29,11 +34,12 @@
   "honesty": {
     "worker": "demonstration ground-truth function, not a real LLM",
     "delta_saving": "topology-dependent; T-root 0.3333, T-leaf 0.6667; T-root below 0.50 ideal line",
-    "strength70": "rebuilt selfcheck (16 independent families), not original engine replica; self-judged, needs external CI",
+    "strength70": "rebuilt selfcheck (16 independent families), not original engine replica; self-judged; remote CI success proves it RUNS, not that its verdicts are externally valid",
     "f13_exemption": "only the detector-definition block in strength70_selfcheck.py is skipped; guarded by paired markers, <=24 lines, self-file only; any guard failure is recorded as a hit and F13 fails; exemption line count is written into the F13 receipt",
     "assertion_state": "A12 was once marked 16/16 PASS while last run was 15/16; corrected by final re-run receipt, not by claiming 'fixed'",
-    "publication": "GitHub push requires explicit approval",
-    "sanitization": "internal-person teaching page moved out of public repo; private paths generalized; generated failure log moved out of repo root"
+    "publication": "PUBLISHED 2026-11-12 after explicit owner approval; verified online (21 blobs, MIT detected, HEAD matches, CI success)",
+    "ci_boundary": "CI success = tests + selfcheck run in a clean remote environment; it is NOT third-party certification of the mechanism's effectiveness",
+    "sanitization": "internal-person teaching page moved out of public repo; private paths generalized; generated failure log moved out of repo root; real primary email never written into any public file"
   },
   "files": [
     "replanweaver.py", "strength70_selfcheck.py", "README.md", "LICENSE",

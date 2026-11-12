@@ -82,4 +82,4 @@ python strength70_selfcheck.py
 
 - worker 是演示函数，未接真实 LLM → 「在真实多 agent 集群有效」不成立
 - 原 70 维引擎未定位，A12 自评为重建口径
-- 未推送 GitHub（二级授权待放行）
+- 已于 2026-11-12 推送 GitHub（线上回执见 `RELEASE_CHECKLIST.md` 发布回执段）；但「可跑」≠「有效」：无外部独立实现，也无真实 LLM 集群验证

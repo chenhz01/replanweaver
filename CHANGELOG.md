@@ -25,4 +25,8 @@ All notable changes to this project are documented here. 版本按「可证伪�
 - worker 为真值演示函数，未接真实 LLM
 - delta_saving 强依赖拓扑，根偏差场景仅 33.3%，低于理想线 50%（v0.5 优化项）
 - 原 strength70.py 未定位到，自评为重建口径
-- 未推送 GitHub（等项目所有者「可以推」）
+- 机制有效性未经外部独立实现验证（CI 通过只证明测试与自评器可跑）
+
+### 发布（2026-11-12）
+- 项目所有者明确「可以推」后推送至 https://github.com/chenhz01/replanweaver（public / MIT）。
+- 线上核验：HEAD `b818308` 与本地一致、21 文件、GitHub Actions CI `conclusion=success`（3 版本矩阵）。

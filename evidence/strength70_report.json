@@ -1,6 +1,6 @@
 {
   "tool": "strength70_selfcheck (rebuilt)",
-  "at": "2026-11-12T10:08:59+00:00",
+  "at": "2026-11-12T10:17:08+00:00",
   "scope_note": "重建口径：D01-D70 中 50 可硬判 / 20 不适用 / 16 独立判据；本脚本逐族实算，非原 strength70.py 逐维复刻",
   "counts": {
     "families": 16,

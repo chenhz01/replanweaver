@@ -132,7 +132,7 @@ FailureDistillery.record/prior   -> MAST 三类归档 → avoid_prior 回流
 4. B6/B7 未工程化，B3/B12 仅部分工程化，B13 影子沙盘已实现——本文是**主张**，不是验收报告；状态以 README 机制状态表为唯一口径。
 5. 所有论文编号经检索核真，较新文献（PreFlect 2602.07187、SagaLLM 2503.11951）仅 abstract 级互证，未读全文。
 6. 置信度为主观贝叶斯估计，误差棒为估计区间，非统计置信区间。
-7. 本仓未推送 GitHub；推送需人工授权。
+7. 本仓已于 2026-11-12 人工授权后推送至 https://github.com/chenhz01/replanweaver；但「已开源」≠「机制已被外部验证」——CI 通过只证明测试与自评器可跑，不证明主张成立。
 
 ---
 

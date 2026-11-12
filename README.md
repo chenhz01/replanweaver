@@ -17,12 +17,12 @@
 ## 安装
 
 ```bash
-# 本仓当前为本地仓（未发布），直接在本地目录运行：
+git clone https://github.com/chenhz01/replanweaver.git
 cd replanweaver
 python -V   # 需要 Python 3.10+
 ```
 
-> 发布后此处会换成真实 clone URL；当前 `<repo-url>` 占位已移除，避免陌生人照着做卡住。
+> 仓库地址 `https://github.com/chenhz01/replanweaver` 于 2026-11-12 推送后凭线上实证填入，非占位。
 
 没有 pip 依赖，不需要 API Key，不需要联网。
 
@@ -115,6 +115,8 @@ demo: tasks=3 rounds=2 replans=1 degraded=false
 原 `strength70.py` 本机未定位到；本仓用 `strength70_selfcheck.py` 按公开口径**重建**：D01–D70 中 50 可硬判 / 20 不适用 / 同源族去重后仅 **16 个独立判据**。
 
 **必须说清的局限**：这是**自评器自己跑命令、自己判自己**，属于内部一致性检查，不是第三方认证，也不等于「可发布」。第三方视角由 `.github/workflows/ci.yml` 的外部 CI 与人工复审补足。原文「发布就绪对照」措辞夸大，已更正。
+
+2026-11-12 线上 CI 首跑 `conclusion=success`（3 版本矩阵），证明测试与自评器在干净环境可跑；但这仍是「自己判自己」的远程执行，**不构成第三方对机制有效性的认证**。
 
 **F13 的豁免边界（可审计，非静默放宽）**：扫描器只跳过 `strength70_selfcheck.py` 内 `DETECTOR-DEFINITION-BEGIN/END` 之间的**检测规则字面量**（那不是泄露，是规则本身）。护栏有三条：标记须成对、区间 ≤24 行、只对该文件生效；任一护栏失效就把失效本身记为命中并判 FAIL。实际跳过的行数写进 `evidence/strength70_report.json` 的 F13 回执，可逐行复核。其余文件、该文件其余行全部照扫。
 
