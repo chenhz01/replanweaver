@@ -31,7 +31,8 @@ All notable changes to this project are documented here. 版本按「可证伪�
 - 项目所有者明确「可以推」后推送至 https://github.com/chenhz01/replanweaver（public / MIT）。
 - 线上核验：首发 commit `b818308`、当前 HEAD `fa6608c` 与本地一致；21 文件；GitHub Actions 两次 run 均 `conclusion=success`（3 版本矩阵）。
 
-### 维护性修正 R11（2026-11-12，第三次 push，已授权）
+### 维护性修正 R11（2026-11-12，两阶段回拆，已授权）
 - 发布回执原把 HEAD 写死为首发 `b818308`；第二次推送（发布态对齐）后线上真实 HEAD 变为 `fa6608c`，「与本地一致」失实。
-- `RELEASE_CHECKLIST.md`、`MANIFEST.json`、本文件统一改为「首发 / 当前」双 SHA 留痕；`published_at` 仍指首次公开时间点，不改写。
-- 本修正只改文档口径，不动任何代码、测试或判据；F11 字段契约与 F13 全仓扫描保持不变。
+- **第一次修正**：改为「首发 / 当前」双 SHA。自查发现该修正不彻底——`MANIFEST.json` 的 `head_commit: fa6608c` 随第三次 push 又立刻陈旧。
+- **回拆到根因**：动态量不写进静态清单。`MANIFEST.json` 移除 `head_commit`，只保留不变的 `first_publish_commit`，新增 `head_commit_query` 实时查询命令；`RELEASE_CHECKLIST.md` 的「当前 HEAD」行改为动态查询，不再声称「与本地一致」。`published_at` 仍指首次公开时间点，不改写。
+- 本次只改文档口径，不动任何代码、测试或判据；F11 字段契约与 F13 全仓扫描保持不变。

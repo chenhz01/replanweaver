@@ -71,14 +71,17 @@
 | 项 | 线上值 | 核验命令 |
 |---|---|---|
 | 仓库 | `chenhz01/replanweaver`，public，MIT 已识别 | `gh api repos/chenhz01/replanweaver` |
-| 首发 commit | `b8183083ed062c1bea9649233117eb5e4d8b7a70`（21 文件，发布态仍为占位） | `git log` |
-| 当前 HEAD | `fa6608c926752c12d586e5dcffe9417534edc600`（与本地 `git rev-parse HEAD` 一致） | `gh api repos/.../commits/main` |
+| 首发 commit | `b8183083ed062c1bea9649233117eb5e4d8b7a70`（21 文件，发布态仍为占位；不变历史事实） | `git log` |
+| 当前 HEAD | **动态量，不静态记录**；实时值以右列命令为准 | `gh api repos/chenhz01/replanweaver/commits/main --jq .sha` |
 | 提交身份 | `Zhengming`（GitHub 官方 noreply 地址，真实主邮箱未进入任何公开文件） | 同上 |
 | 文件数 | 21 blobs，与逐文件清单一致 | `gh api repos/.../git/trees/main?recursive=1` |
 | CI | 两次 run 均 `conclusion=success`，3 版本矩阵 | `gh api repos/.../actions/runs` |
 | 首次推送 | `2026-11-12T10:10:37Z` | `created_at` |
 | 最近推送 | `2026-11-12T10:17:28Z` | `pushed_at` |
 
-> **R11 修正（2026-11-12，第三次 push，项目所有者明确授权）**：本节原把 HEAD 写死为首发 `b818308`，第二次推送后线上真实 HEAD 已变为 `fa6608c`，「与本地一致」这句随之失实。现改为「首发 / 当前」双 SHA 留痕，并在 `MANIFEST.json` 同步 `first_publish_commit` 与 `head_commit`，避免后续每次 commit 都让回执陈旧。**如实标注**：`published_at` 仍指首次公开的时间点，不因后续维护提交而改写。
+> **R11 修正（2026-11-12，两阶段回拆，项目所有者明确授权）**：
+> 1. 本节原把 HEAD 写死为首发 `b818308`，第二次推送后线上真实 HEAD 变为 `fa6608c`，「与本地一致」失实 → 首次修正改为「首发 / 当前」双 SHA。
+> 2. **自查发现首次修正不彻底**：`MANIFEST.json` 里写死的 `head_commit: fa6608c` 在第三次 push 后又立刻陈旧。判据没变，是「把动态量写进静态清单」这个设计本身错了 → 回拆到根因：只保留不变的 `first_publish_commit`，当前 HEAD 改为 `head_commit_query` 实时查询命令，`MANIFEST.json` 移除 `head_commit` 字段。
+> 3. **如实标注**：`published_at` 仍指首次公开时间点，不因后续维护提交改写；本回执不再声称「与本地一致」，因为一致是会过期的关系，不是可长期引用的事实。
 
 > **CI 首跑通过补齐了上一轮「无第三方 CI 实跑」缺口**：17 测试与自评器在 GitHub Actions 干净环境独立跑通一次。但这是「自己判自己」的远程执行，**不构成第三方对机制有效性的认证**；真实 LLM 集群验证、原 70 维引擎对拍、T-root 0.50 理想线仍是开放项。
